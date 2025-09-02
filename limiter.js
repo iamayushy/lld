@@ -11,7 +11,7 @@ function limiter (path, limit) {
     }
     else {
         const now = Date.now();
-        if (now - limitMap.get(path).firstReq > time) {
+        if (now - limitMap.get(path).firstReq > time) { 
             limitMap.set(path, {
                 count: 1,
                 firstReq: now,
