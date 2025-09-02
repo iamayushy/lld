@@ -15,18 +15,16 @@ class LRU {
             this.store.delete(key)
         }
         else if (this.store.size >= this.capacity) {
-            const lrKey = this.store.keys().next().value;
-            this.store.delete(lrKey);
+            console.log(this.store.keys())
+            const keyRm = this.store.keys().next().value;
+            this.store.delete(keyRm);
         }
         this.store.set(key, value);
     }
 }
 const store = new LRU(2);
 store.put("a", 12);
-store.get("a")
 store.put("b", 23);
-store.get("a")
 store.put("c", 23);
 console.log(store);
-
 console.log(store.get("b"))
