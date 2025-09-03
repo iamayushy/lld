@@ -3,6 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Pagination from './pagination'
+import { useToast } from './context/Toast'
+import Toast from './Toast'
 
 function App() {
   const [pageProps, setPageProps] = useState({
@@ -12,17 +14,16 @@ function App() {
     size: 7
   })
   const dummyData = Array.from({ length: pageProps.size }, (_, i) => `Item ${(pageProps.currentPage - 1) * pageProps.size + i + 1}`);
+  const {addToast} = useToast();
   return (
     <>
     <div>
-      <div>
-        {dummyData.map(item => <div key={item} className="p-2 border-b">{item}</div>)}
+     
+      <button 
+      className='m-5 p-3 border bg-blue-500 text-white rounded'
+      onClick={() => addToast("This is a success message", "success")}>Show Success Toast</button>
       </div>
-    <Pagination
-      pageProps={pageProps}
-      setPageProps={setPageProps}
-    />
-      </div>
+       <Toast/>
     </>
   )
 }
