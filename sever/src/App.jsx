@@ -5,6 +5,7 @@ import './App.css'
 import Pagination from './pagination'
 import { useToast } from './context/Toast'
 import Toast from './Toast'
+import TicTacToe from './tic'
 
 function App() {
   const [pageProps, setPageProps] = useState({
@@ -18,12 +19,9 @@ function App() {
   return (
     <>
     <div>
-     
-      <button 
-      className='m-5 p-3 border bg-blue-500 text-white rounded'
-      onClick={() => addToast("This is a success message", "success")}>Show Success Toast</button>
-      </div>
+        <TicTacToe n={3}/>
        <Toast/>
+    </div>
     </>
   )
 }
